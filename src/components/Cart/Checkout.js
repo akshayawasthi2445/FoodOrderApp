@@ -49,6 +49,13 @@ const Checkout = (props) => {
       return;
     }
 
+    props.onConfirm({
+      name: enteredName,
+      street: enteredStreet,
+      city: enteredCity,
+      postalCode: enteredPostalCode
+    });
+
     // Submit cart data
   };
 
@@ -82,7 +89,7 @@ const Checkout = (props) => {
         <input type='text' id='postal' ref={postalCodeInputRef} />
         {!formInputsValidity.postalCode && (
           <p>Please enter a valid postal code (6 characters long)!</p>
-        )}
+        )} 
       </div>
       <div className={cityControlClasses}>
         <label htmlFor='city'>City</label>
